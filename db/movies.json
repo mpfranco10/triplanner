@@ -1,0 +1,270 @@
+[
+   {
+      "img1":"https://cdn.cinepapaya.com/stat/img/static-cp/cine/newsstory/esto-es-lo-que-dice-la-critica-sobre-el-llamado-salvaje-de-harrison-ford-main-1582149562.jpg",
+      "name":"El llamado de la naturaleza",
+      "description":"Cuenta la historia de Buck, un perro bonachón cuya vida cambia de la noche a la mañana, cuando su dueño se muda de California a los exóticos parajes de Alaska durante la Fiebre del Oro a finales del s. XIX. Como novato de un grupo de perros de trineo (y posteriormente su líder), Buck experimenta una aventura que jamás olvidará, encontrando su lugar en el mundo y convirtiéndose así en su propio amo.",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"7:10 pm",
+      "place":"Cine Colombia Cedritos",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/el-llamado-salvaje",
+      "likes":0,
+      "id":1,
+      "precio": "$14.200",
+      "horarios":[
+         {
+         "info" : "Doblada - 11:40AM"
+         },
+         {
+            "info" : "Doblada - 2:00PM"
+         },
+         {
+            "info" : "Doblada - 4:30PM"
+         },
+         {
+            "info" : "Doblada - 9:40PM"
+         },
+         {
+            "info" : "Subtitulada - 7:10PM"
+         },
+         {
+            "info" : "Subtitulada - 9:30PM"
+         }
+      ]
+   },
+   {
+      "img1":"https://hipertextual.com/files/2020/02/hipertextual-critica-hombre-invisible-regreso-basico-cine-terror-con-enorme-efectividad-2020278203.jpg",
+      "name":"El hombre invisible",
+      "description":"La película sigue a Cecilia, quien recibe la noticia del suicidio de su abusivo ex novio. Ella comienza a reconstruir su vida. Sin embargo, su sentido de la realidad se pone en tela de juicio cuando comienza a sospechar que su amante fallecido no está realmente muerto.",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"9:50 pm",
+      "place":"Cine Colombia Andino",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/el-hombre-invisible",
+      "likes":0,
+      "id":2,
+      "precio": "$17.500",
+      "horarios":[
+         {
+            "info" : "ONYX - Subtitulada - 3:50PM"
+         },
+         {
+            "info" : "ONYX - Subtitulada - 6:40PM"
+         },
+         {
+            "info" : "ONYX - Subtitulada - 9:40PM"
+         }
+      ]
+   },
+   {
+      "img1":"https://www.eltiempo.com/files/image_950_534/files/crop/uploads/2020/01/23/5e2a12d38e386.r_1579903165424.0-202-3000-1691.jpeg",
+      "name":"Bad boy para siempre",
+      "description":"Los Bad Boys Mike Lowrey (Will Smith) y Marcus Burnett (Martin Lawrence) vuelven a estar juntos para un último viaje en la muy esperada Bad Boys Para Siempre.",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"8:00 pm",
+      "place":"Cine Colombia Centro Chía",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/bad-boys-para-siempre",
+      "likes":0,
+      "id":3,
+      "precio": "$12.500",
+      "horarios":[
+         {
+            "info" : "Doblada - 5:10PM"
+         },
+         {
+            "info" : "Doblada - 8:00PM"
+         }
+      ]
+   },
+   {
+      "img1":"https://elvortex.com/wp-content/uploads/2020/02/sonic-the-hedgehog-movie-contains-some-surprising-smash-references.jpg",
+      "name":"Sonic La Pelicula",
+      "description":"Basado en la exitosa franquicia de videojuegos de SEGA,  SONIC LA PELÍCULA cuenta la historia del erizo más veloz de la historia mientras se adapta en La Tierra. En esta comedia en live-action llena de aventura, Sonic y su nuevo mejor amigo Tom (James Marsden) se unen para defender  La Tierra del malvado genio Dr. Robotnik (Jim Carrey) y de sus planes para dominar el mundo.  ",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Cine Colombia Centro Santa Fe",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/sonic-la-pelicula",
+      "likes":0,
+      "id":4,
+      "precio": "$15.000",
+      "horarios":[
+         {
+            "info" : "Doblada - 3:50PM"
+         },
+         {
+            "info" : "Doblada - 4:40PM"
+         },
+         {
+            "info" : "Doblada - 6:15PM"
+         },
+         {
+            "info" : "Doblada - 7:25PM"
+         },
+         {
+            "info" : "Doblada - 9:00PM"
+         }
+      ]
+   },
+   {
+      "img1":"https://www.yaconic.com/wp-content/uploads/2019/12/parasite-.jpg",
+      "name":"Parásito",
+      "description":"La familia Park parece tenerlo todo. Y la familia Kim no tiene nada, excepto su ingenio y el wi-fi que se roban de sus vecinos. Una repentina oportunidad une a las dos familias: la hija de los Park necesita un tutor y el hijo de los Kim logra engañarlos para conseguir el trabajo. Así, poco a poco, con una mentira u otra, irá introduciendo al resto de sus familiares en distintas funciones de la casa de los Park. Pero el frágil ecosistema simbiótico que han construido no puede acoger a más de un parásito y se viene una guerra impredecible entre dos familias tan similares como distintas… ",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Cine Colombia El Edén",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/parasito",
+      "likes":0,
+      "id":5,
+      "precio": "$15.000",
+      "horarios":[
+         {
+            "info" : "Doblada - 3:15PM"
+         },
+         {
+            "info" : "Doblada - 6:15PM"
+         },
+         {
+            "info" : "Doblada - 9:15PM"
+         }
+      ]
+   },
+   {
+      "img1":"https://www.diariovivo.com/wp-content/uploads/2019/12/doctor-dolittle-750x450.jpg",
+      "name":"Dolittle",
+      "description":"Luego de perder a su esposa siete años antes, el excéntrico Dr. John Dolittle (Downey), famoso doctor y veterinario de la Inglaterra victoriana, sale de la Mansión Dolittle, con solamente la compañía de su grupo de animales exóticos. Pero en el momento en el que la joven reina (Jessie Buckley, “Wild Rose”) cae gravemente enferma, un Dolittle reacio se ve forzado a partir en una épica aventura a una isla mítica en busca de una cura, recuperando su ingenio y valentía para encontrarse con viejos adversarios y descubrir maravillosas criaturas. ",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Cine Colombia Titán Plaza",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/dolittle",
+      "likes":0,
+      "id":6,
+      "precio": "$11.000",
+      "horarios":[
+         {
+            "info" : "Doblada - 10:00AM"
+         },
+         {
+            "info" : "Doblada - 11:50AM"
+         }
+      ]
+   },
+   {
+      "img1":"https://i.blogs.es/617452/1917-cartel/1366_2000.jpeg",
+      "name":"1917",
+      "description":"En el apogeo de la Primera Guerra Mundial, dos jóvenes soldados británicos, Schofield y Blake, son encargados con una misión aparentemente imposible. En una carrera contra el tiempo, pueden cruzar territorio enemigo para entregar un mensaje que evitará un ataque mortífero sobre cientos de soldados, incluyendo al hermano de Blake entre ellos.",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Cine Colombia Andino",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/1917",
+      "likes":0,
+      "id":7,
+      "precio": "$17.000",
+      "horarios":[
+         {
+            "info" : "Subtitulada - 06:50PM"
+         },
+         {
+            "info" : "Subtitulada - 09:50PM"
+         }
+      ]
+   },
+   {
+      "img1":"https://www.dejusticia.org/wp-content/uploads/2020/01/jojo-rabbit-2-1200x550.jpg",
+      "name":"Jojo Rabbit",
+      "description":"El escritor y director Taika Waititi (THOR: RAGNAROK, HUNT FOR THE WILDERPEOPLE) nos presenta su distintivo estilo humorístico y pathos en su más reciente filme, JOJO RABBIT, una sátira de la Segunda Guerra Mundial, en la que un solitario niño alemán (Roman Griffin Davis), cuya visión del mundo se pone de cabeza cuando descubre que su madre soltera (Scarlett Johansson) está escondiendo a una joven (Thomasin McKenzie) en su ático. Ayudado sólo por su idiota amigo imaginario, Adolf Hitler (Taika Waititi), Jojo deberá confrontar su nacionalismo que lo tiene cegado.",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Cine Colombia Andino",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/jojo-rabbit",
+      "likes":0,
+      "id":8,
+      "precio": "$17.000",
+      "horarios":[
+         {
+            "info" : "Subtitulada - 04:10PM"
+         }
+      ]
+   }
+   ,
+   {
+      "img1":"https://www.dosismedia.com/wp-content/uploads/2018/12/the-final-wish-trailer-1.jpg",
+      "name":"La casa de los demonios",
+      "description":"Después de la repentina muerte de su padre, Aaron se ve obligado a regresar a casa para ayudar a su madre. Pero mientras ordena las pertenencias del difunto, Aaron encuentra una extraña urna que convierte los deseos en realidad. Lo que no sabe es que el mágico objeto oculta un maleficio siniestro, que pondrá en riesgo su vida y las de lo que queda de su familia. Atrapado en una pesadilla viviente, Aaron descubrirá que los deseos vienen con un precio terrible, que quizás no pueda pagar…",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Cine Colombia Santa Fe",
+      "link":"https://www.cinecolombia.com/pelicula/bogota/la-casa-de-los-demonios",
+      "likes":0,
+      "id":9,
+      "precio": "$15.000",
+      "horarios":[
+         {
+            "info" : "Doblada - 07:40PM"
+         },
+         {
+            "info" : "Subtitulada - 10:00PM"
+         }
+      ]
+   }
+   ,
+   {
+      "img1":"https://www.rosadistrito.com/wp-content/uploads/2020/02/caballeros.jpg",
+      "name":"Los caballeros",
+      "description":"Mickey Pearson (Matthew McConaughey) es un estadounidense que ha creado un exitoso imperio criminal en Londres. Pero cuando decide venderlo al mejor postor, más de uno intentará impedir el acuerdo y tomarlo por su propia cuenta, sin importar el costo.…",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Cinépolis Calima",
+      "link":"https://www.cinepolis.com.co/pelicula/los-caballeros",
+      "likes":0,
+      "id":10,
+      "precio": "$15.000",
+      "horarios":[
+         {
+            "info" : "Doblada - 02:20PM"
+         },
+         {
+            "info" : "Doblada - 05:00PM"
+         },
+         {
+            "info" : "Doblada - 07:30PM"
+         }
+      ]
+   }
+   ,
+   {
+      "img1":"https://i.ytimg.com/vi/w3QTe5Qh_qA/maxresdefault.jpg",
+      "name":"Buscando justicia",
+      "description":"Uno de sus primeros casos, y el más incendiario, es el de Walter McMillian (Foxx), quien, en 1987, fue sentenciado a muerte por el notorio asesinato de una niña de 18 años, a pesar de la preponderancia de evidencias que prueban su inocencia y el hecho de que el único testimonio en su contra provino de un criminal con motivos para mentir. …",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"3:00 pm",
+      "place":"Cinépolis VIP Plaza Claro",
+      "link":"https://www.cinepolis.com.co/pelicula/buscando-justicia",
+      "likes":4,
+      "id":11,
+      "precio": "$15.000",
+      "horarios":[
+         {
+            "info" : "Subtitulada - 03:00PM"
+         },
+         {
+            "info" : "Subtitulada - 6:30PM"
+         }
+      ]
+   }
+   ,
+   {
+      "img1":"https://i2.wp.com/noescinetodoloquereluce.com/wp-content/uploads/2020/01/aves.jpg?fit=800%2C445&ssl=1",
+      "name":"Aves De Presa: Y La Fantabulosa Emancipaci",
+      "description":"Después de separarse de Joker, Harley Quinn y otras tres heroínas (Canario Negro, Cazadora y Renée Montoya) unen sus fuerzas para salvar a una niña (Cassandra Cain) del malvado rey del crimen Máscara...",
+      "date":"Domingo, Marzo 1 de 2020",
+      "time":"6:30 pm",
+      "place":"Plaza imperial",
+      "link":"https://www.cinemark.com.co/cartelera/bogota/aves-de-presa-y-la-fantastica-emancipacio",
+      "likes":3,
+      "id":12,
+      "precio": "$16.000",
+      "horarios":[
+         {
+            "info" : "Doblada - 09:40PM"
+         }
+      ]
+   }
+]
