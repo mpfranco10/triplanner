@@ -1,3 +1,8 @@
+require("dotenv").config()
+
+global.mongoUrl = process.env.MONGODB_CONNECTION_STRING;
+// mongodb://localhost:27017/tripsDB
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -23,6 +28,13 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
+});
 
 app.use(logger('dev'));
 app.use(express.json());
