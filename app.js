@@ -44,17 +44,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-if (process.env.NODE_ENV === 'production') {
-  console.log("production");
-  // Step 1:
-  app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
-  // Step 2:
-  app.get("/*", function (request, response) {
-    response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
-  });
-}
-
 //app.use('/', indexRouter);
 app.use('/countries', usersRouter);
 app.use('/trips', tripsRouter);
@@ -67,7 +56,17 @@ app.use('/budgets', budgetsRouter);
 app.use('/notes', notesRouter);
 app.use('/userTrips', userTripsRouter);
 app.use('/widgets', widgetsRouter);
-app.use('/api/greetings', greetingsRouter);
+app.use('/api/v1/greetings', greetingsRouter);
+
+if (process.env.NODE_ENV === 'production') {
+  console.log("production");
+  // Step 1:
+  app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
+  // Step 2:
+  app.get("/*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
+  });
+}
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
