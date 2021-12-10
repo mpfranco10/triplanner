@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "cd trip-planner && npm run build",
-    "install-client": "cd trip-planner && npm install",
+    "install-client": "cd trip-planner && npm install && npm install -g serve",
     "heroku-postbuild": "npm run install-client && npm run build",
     "server": "node --optimize_for_size --max_old_space_size=920 app.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix trip-planner\"",
