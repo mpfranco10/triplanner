@@ -5,6 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch } from "react-redux";
 import { userChanged } from "../reducers/UserReducer";
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 function Callback(props) {
   const {
