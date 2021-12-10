@@ -3,12 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "cd trip-planner && npm run build",
-    "install-client": "cd trip-planner && npm install",
+    "start": "node app.js",
+    "install-client": "cd ./trip-planner && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "server": "node app.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix trip-planner\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix trip-planner\""
+    "build": "react-scripts build"
   },
   "dependencies": {
     "axios": "^0.21.4",
