@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
+    "start": "npm install & node app.js",
     "install-client": "cd ./trip-planner && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "build": "react-scripts build"
