@@ -82,11 +82,11 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-if (process.env.NODE_ENV === 'dev') {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`server running on port ${PORT}`);
-  });
-}
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`server running on port ${PORT}`);
+});
+
 
 module.exports = app;
