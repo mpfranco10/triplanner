@@ -6,7 +6,7 @@
     "build": "cd trip-planner && npm run build",
     "install-client": "cd trip-planner && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "server": "node app.js",
+    "server": "node --optimize_for_size --max_old_space_size=920 app.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix trip-planner\"",
     "start": "node --optimize_for_size --max_old_space_size=2000 & concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix trip-planner\""
   },
