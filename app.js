@@ -45,6 +45,16 @@ app.use(function (req, res, next) {
 });
 
 
+if (process.env.NODE_ENV === 'production') {
+  console.log("production");
+  // Step 1:
+  app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
+  // Step 2:
+  app.get("/*", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
+  });
+}
+
 //app.use('/', indexRouter);
 app.use('/countries', usersRouter);
 app.use('/trips', tripsRouter);
@@ -57,7 +67,7 @@ app.use('/budgets', budgetsRouter);
 app.use('/notes', notesRouter);
 app.use('/userTrips', userTripsRouter);
 app.use('/widgets', widgetsRouter);
-app.use('/greetings', greetingsRouter);
+app.use('/api/greetings', greetingsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -74,16 +84,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-if (process.env.NODE_ENV === 'production') {
-  console.log("production");
-  // Step 1:
-  app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
-  // Step 2:
-  app.get("/*", function (request, response) {
-    response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
-  });
-}
 
 if (process.env.NODE_ENV === 'dev') {
   const PORT = process.env.PORT || 5000;
