@@ -30,13 +30,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// Step 1:
-app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
-// Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
-});
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -81,6 +74,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
+});
+
 
 const PORT = process.env.PORT || 5000;
 console.log(process.env.PORT);
