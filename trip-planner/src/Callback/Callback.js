@@ -5,7 +5,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch } from "react-redux";
 import { userChanged } from "../reducers/UserReducer";
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 
 function Callback(props) {
   const {
@@ -16,16 +15,6 @@ function Callback(props) {
   } = useAuth0();
 
   const dispatch = useDispatch();
-
-  axios.get('/greetings', //proxy uri
-    {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => {
-      const resp = res.data;
-      console.log(resp);
-    });
 
   let loading = <div className="loading">
     <div className="loader"></div>

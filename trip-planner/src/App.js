@@ -23,9 +23,21 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch } from "react-redux";
 import { userChanged } from "./reducers/UserReducer";
 import { selectedTripChanged } from "./reducers/TripReducer";
+import axios from 'axios';
 
 function HomePage(props) {
     const { loginWithRedirect } = useAuth0();
+
+    axios.get('/api/v1/greetings', //proxy uri
+    {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      const resp = res.data;
+      console.log(resp);
+    });
+
 
     return (
         <div className="container-fluid" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
