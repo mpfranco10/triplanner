@@ -36,7 +36,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
-const { createProxyMiddleware } = require('http-proxy-middleware');
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -59,11 +58,10 @@ app.use('/widgets', widgetsRouter);
 app.use('/api/v1/greetings', greetingsRouter);
 
 if (process.env.NODE_ENV === 'production') {
-  console.log("production");
   // Step 1:
   app.use(express.static(path.resolve(__dirname, "./trip-planner/build")));
   // Step 2:
-  app.get("/*", function (request, response) {
+  app.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "./trip-planner/build", "index.html"));
   });
 }
