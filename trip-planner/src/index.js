@@ -10,6 +10,8 @@ import configureStore from "./store";
 import Auth0ProviderWithHistory from './Auth/auth0-provider-with-history';
 import { PersistGate } from 'redux-persist/integration/react'
 
+require('dotenv').config();
+
 const { store, persistor } = configureStore();
 
 ReactDOM.render(

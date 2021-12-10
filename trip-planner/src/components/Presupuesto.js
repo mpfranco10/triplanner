@@ -16,6 +16,7 @@ import { Prompt } from 'react-router-dom';
 import configureStore from '../store';
 
 const { store } = configureStore();
+const url = process.env.REACT_APP_BACK_URL || '';
 
 const popover = (msg) => (
   <OverlayTrigger
@@ -81,7 +82,7 @@ export default class Presupuesto extends React.Component {
 
     //create empty object if necessary
     var tripId = trip.id;
-    axios.get('http://localhost:5000/budgets/' + tripId, //proxy uri
+    axios.get(url + '/budgets/' + tripId, //proxy uri
       {
         headers: {
           'Content-Type': 'application/json'
@@ -91,7 +92,7 @@ export default class Presupuesto extends React.Component {
         console.log(resp);
         if (resp.length === 0) { //there is nothing, so post
           var newObj = { tripId: tripId, val: this.state.val, total: this.state.total, elements: this.state.elements, localCurrency: this.state.localCurrency };
-          axios.post('http://localhost:5000/budgets', newObj)
+          axios.post(url + '/budgets', newObj)
             .then(res => {
               console.log("savedNewBudget");
             });
@@ -184,7 +185,7 @@ export default class Presupuesto extends React.Component {
     });
     var tripId = this.state.trip.id;
     var newObj = { val: this.state.val, total: this.state.total, elements: this.state.elements, localCurrency: this.state.localCurrency };
-    axios.put('http://localhost:5000/budgets/' + tripId, newObj)
+    axios.put(url + '/budgets/' + tripId, newObj)
       .then(res => {
         console.log("updated budget");
         this.setState({ showSaved: true });

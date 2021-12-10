@@ -12,6 +12,8 @@ const minuteSeconds = 60;
 const hourSeconds = 3600;
 const daySeconds = 86400;
 
+const url = process.env.REACT_APP_BACK_URL || '';
+
 const timerProps = {
   isPlaying: true,
   size: 120,
@@ -58,7 +60,7 @@ export default class Principal extends React.Component {
       this.setState({ endDate: dateTrip });
 
       var tripId = trip.id;
-      axios.get('http://localhost:5000/widgets/' + tripId, //proxy uri
+      axios.get(url + '/widgets/' + tripId, //proxy uri
         {
           headers: {
             'Content-Type': 'application/json'

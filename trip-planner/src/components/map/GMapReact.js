@@ -11,7 +11,8 @@ import Popover from 'react-bootstrap/Popover';
 import { FaQuestionCircle, FaTrashAlt, FaMapMarkerAlt, FaRegClock, FaExternalLinkAlt } from "react-icons/fa";
 import { BiTargetLock } from "react-icons/bi";
 
-const GOOGLE_API_KEY = "AIzaSyDSymRKtpFQbaTLW8RovSLfZpjaD0WQow4";
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+const url = process.env.REACT_APP_BACK_URL || '';
 
 const containerStyle = {
   width: '100%',
@@ -70,8 +71,7 @@ export default class GMapReact extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.tripId);
-    axios.get('http://localhost:5000/places/' + this.props.tripId, //proxy uri
+    axios.get(url + '/places/' + this.props.tripId, //proxy uri
       {
         headers: {
           'Content-Type': 'application/json'
@@ -106,7 +106,7 @@ export default class GMapReact extends React.Component {
         myPlaces.unshift(place);
         this.setState({ myPlaces: myPlaces });
 
-        axios.post('http://localhost:5000/places', place)
+        axios.post(url + '/places', place)
           .then(res => {
             console.log("saved");
           });
@@ -132,7 +132,7 @@ export default class GMapReact extends React.Component {
     data.splice(index, 1);
     this.setState({ myPlaces: data });
 
-    axios.delete('http://localhost:5000/places/' +  this.props.tripId + '/' + id)
+    axios.delete(url + '/places/' +  this.props.tripId + '/' + id)
       .then(res => {
         console.log("deleted place");
       });
@@ -183,7 +183,7 @@ export default class GMapReact extends React.Component {
       delete arrayItem.color;
     });
     this.setState({ myPlaces: data });
-    axios.put('http://localhost:5000/places/' + this.props.tripId + '/colors')
+    axios.put(url + '/places/' + this.props.tripId + '/colors')
       .then(res => {
         console.log("updated colors");
       });
@@ -202,7 +202,7 @@ export default class GMapReact extends React.Component {
     delete place._id;
     this.setState({ myPlaces: data });
 
-    axios.put('http://localhost:5000/places/' + this.props.tripId + '/' + id, place)
+    axios.put(url + '/places/' + this.props.tripId + '/' + id, place)
       .then(res => {
         console.log("updated color");
       });

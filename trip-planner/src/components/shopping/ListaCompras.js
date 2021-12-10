@@ -8,6 +8,7 @@ import ShopTable from './ShopTable';
 import configureStore from '../../store';
 
 const { store } = configureStore();
+const url = process.env.REACT_APP_BACK_URL || '';
 
 export default class ListaCompras extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class ListaCompras extends React.Component {
       element.style.display = 'none';
     });
 
-    axios.put('http://localhost:5000/shoppingLists/' + tripId, newObj)
+    axios.put(url + '/shoppingLists/' + tripId, newObj)
       .then(res => {
         console.log("updated lists");
       });
@@ -51,7 +52,7 @@ export default class ListaCompras extends React.Component {
 
     //create empty object if necessary
     var tripId = trip.id;
-    axios.get('http://localhost:5000/shoppingLists/' + tripId, //proxy uri
+    axios.get(url + '/shoppingLists/' + tripId, //proxy uri
       {
         headers: {
           'Content-Type': 'application/json'
@@ -60,7 +61,7 @@ export default class ListaCompras extends React.Component {
         const resp = res.data;
         if (resp.length === 0) { //there is nothing, so post
           var newObj = { tripId: tripId, beforeList: [], afterList: [] };
-          axios.post('http://localhost:5000/shoppingLists', newObj)
+          axios.post(url + '/shoppingLists', newObj)
             .then(res => {
               console.log("savedNewList");
             });

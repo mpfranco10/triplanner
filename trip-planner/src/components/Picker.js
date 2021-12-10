@@ -18,6 +18,7 @@ import { selectedTripChanged } from "../reducers/TripReducer";
 import configureStore from '../store';
 
 const { store } = configureStore();
+const url = process.env.REACT_APP_BACK_URL || '';
 
 class Picker extends React.Component {
     constructor(props) {
@@ -59,7 +60,7 @@ class Picker extends React.Component {
         }
         let userID = user.sub;
         this.setState({ userId: user.sub });
-        axios.get('http://localhost:5000/countries', //proxy uri
+        axios.get(url + '/countries', //proxy uri
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -77,7 +78,7 @@ class Picker extends React.Component {
                 this.setState({ countries: options });
             });
 
-        axios.get('http://localhost:5000/userTrips/' + userID, //proxy uri
+        axios.get(url + '/userTrips/' + userID, //proxy uri
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -86,7 +87,7 @@ class Picker extends React.Component {
                 var resp = res.data;
                 if (resp.length === 0) { //there is nothing, so post
                     var newObj = { userId: userID, trips: [] };
-                    axios.post('http://localhost:5000/userTrips', newObj)
+                    axios.post(url + '/userTrips', newObj)
                         .then(res => {
                             console.log("savedNewUserTrips");
                         });
@@ -129,14 +130,14 @@ class Picker extends React.Component {
             selectedCountry: this.state.selectedCountry,
             selectedCity: this.state.selectedCity
         };
-        axios.post('http://localhost:5000/trips', toSave)
+        axios.post(url + '/trips', toSave)
             .then(res => {
                 var data = this.state.trips;
                 data.push(toSave);
                 var newObj = {
                     trips: data.map(a => a.id),
                 };
-                axios.put('http://localhost:5000/userTrips/' + this.state.userId, newObj)
+                axios.put(url + '/userTrips/' + this.state.userId, newObj)
                     .then(res => {
                         console.log("updated trips");
                         this.setState({ trips: data });
@@ -158,12 +159,12 @@ class Picker extends React.Component {
             var data = [...this.state.trips];
             var index = data.findIndex(o => o.id === obj.id);
             data.splice(index, 1);
-            axios.delete('http://localhost:5000/trips/' + obj.id)
+            axios.delete(url + '/trips/' + obj.id)
                 .then(res => {
                     var newObj = {
                         trips: data.map(a => a.id),
                     };
-                    axios.put('http://localhost:5000/userTrips/' + this.state.userId, newObj)
+                    axios.put(url + '/userTrips/' + this.state.userId, newObj)
                         .then(res => {
                             console.log("updated trips");
                             this.setState({ trips: data });
@@ -176,7 +177,7 @@ class Picker extends React.Component {
         if (!inputValue) {
             return callback([]);
         } else if (inputValue.length >= 3) {
-            axios.get('http://localhost:5000/countries/' + this.state.selectedCountry + '/' + inputValue, //proxy uri
+            axios.get(url + '/countries/' + this.state.selectedCountry + '/' + inputValue, //proxy uri
                 {
                     headers: {
                         'Content-Type': 'application/json'

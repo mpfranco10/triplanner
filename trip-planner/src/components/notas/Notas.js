@@ -11,6 +11,7 @@ import { Prompt } from 'react-router-dom';
 import configureStore from '../../store';
 
 const { store } = configureStore();
+const url = process.env.REACT_APP_BACK_URL || '';
 
 export default class Notas extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ export default class Notas extends React.Component {
 
     //create empty object if necessary
     var tripId = trip.id;
-    axios.get('http://localhost:5000/notes/' + tripId, //proxy uri
+    axios.get(url + '/notes/' + tripId, //proxy uri
       {
         headers: {
           'Content-Type': 'application/json'
@@ -47,7 +48,7 @@ export default class Notas extends React.Component {
         console.log(resp);
         if (resp.length === 0) { //there is nothing, so post
           var newObj = { tripId: tripId, stickyNotes: this.state.stickyNotes };
-          axios.post('http://localhost:5000/notes', newObj)
+          axios.post(url + '/notes', newObj)
             .then(res => {
               console.log("savedNewNote");
             });
@@ -90,7 +91,7 @@ export default class Notas extends React.Component {
       element.style.display = 'none';
     });
     var tripId = this.state.trip.id;
-    axios.put('http://localhost:5000/notes/' + tripId, { stickyNotes: this.state.stickyNotes })
+    axios.put(url + '/notes/' + tripId, { stickyNotes: this.state.stickyNotes })
       .then(res => {
         console.log("updated notes");
         this.setState({ showSaved: true, shouldBlockNavigation: false });

@@ -19,6 +19,7 @@ import { BsFillGearFill } from "react-icons/bs";
 import CalendarModal from '../modals/CalendarModal';
 
 const GOOGLE_API_KEY = "AIzaSyDSymRKtpFQbaTLW8RovSLfZpjaD0WQow4";
+const url = process.env.REACT_APP_BACK_URL || '';
 
 const popover = (msg) => (
     <OverlayTrigger
@@ -92,14 +93,14 @@ export default class Calendario extends React.Component {
     }
 
     patchTripCalendar(changes) {
-        axios.put('http://localhost:5000/hotels/' + this.props.tripId, changes)
+        axios.put(url + '/hotels/' + this.props.tripId, changes)
             .then(res => {
                 console.log("updated calendar");
             });
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/places/' + this.props.tripId, //proxy uri
+        axios.get(url + '/places/' + this.props.tripId, //proxy uri
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -126,7 +127,7 @@ export default class Calendario extends React.Component {
                 this.setState({ listOfDates: days });
             });
 
-        axios.get('http://localhost:5000/events/' + this.props.tripId, //proxy uri
+        axios.get(url + '/events/' + this.props.tripId, //proxy uri
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -144,7 +145,7 @@ export default class Calendario extends React.Component {
                 this.setState({ selectedIntervals: sevents, lastUid: lastuid + 1 });
             });
 
-        axios.get('http://localhost:5000/hotels/' + this.props.tripId, //proxy uri
+        axios.get(url + '/hotels/' + this.props.tripId, //proxy uri
             {
                 headers: {
                     'Content-Type': 'application/json'
@@ -166,7 +167,7 @@ export default class Calendario extends React.Component {
                     this.setState({ hotel: hotelId, unit: unit, calendarStart: calendarStart, minimumCalendarHour: minimumCalendarHour });
                 } else {
                     var newObj = { id: this.props.tripId, placeId: '', unit: this.state.unit, calendarStart: this.state.calendarStart };
-                    axios.post('http://localhost:5000/hotels', newObj)
+                    axios.post(url + '/hotels', newObj)
                         .then(res => {
                         });
                 }
@@ -182,7 +183,7 @@ export default class Calendario extends React.Component {
             this.setState({ selectedIntervals });
         }
 
-        axios.delete('http://localhost:5000/events/' + this.props.tripId + '/' + event.uid)
+        axios.delete(url + '/events/' + this.props.tripId + '/' + event.uid)
             .then(res => {
                 console.log("deleted event");
             });
@@ -211,7 +212,7 @@ export default class Calendario extends React.Component {
         event.startString = event.start.format("yyyy-MM-DD HH:mm");
         event.endString = event.end.format("yyyy-MM-DD HH:mm");
 
-        axios.put('http://localhost:5000/events/' + this.props.tripId + '/' + event.uid, event)
+        axios.put(url + '/events/' + this.props.tripId + '/' + event.uid, event)
             .then(res => {
                 console.log("updated event");
             });
@@ -284,7 +285,7 @@ export default class Calendario extends React.Component {
             }
         }
 
-        axios.post('http://localhost:5000/events', intervals)
+        axios.post(url + '/events', intervals)
             .then(res => {
                 console.log("savedSchedule");
             });
@@ -371,7 +372,7 @@ export default class Calendario extends React.Component {
         var params = { origins: origins, destinations: destinations, key: GOOGLE_API_KEY, mode: this.state.transportMode };
 
         //console.log(params);
-        axios.get('http://localhost:5000/matrix',
+        axios.get(url + '/matrix',
             { params },
             {
                 headers: {
@@ -402,12 +403,12 @@ export default class Calendario extends React.Component {
             this.setState({ hotel: event.target.value });
             var selectedHotel = { id: this.props.tripId, placeId: event.target.value };
             if (this.state.hotel === '') {
-                axios.post('http://localhost:5000/hotels', selectedHotel)
+                axios.post(url + '/hotels', selectedHotel)
                     .then(res => {
                         console.log("savedHotel");
                     });
             } else {
-                axios.put('http://localhost:5000/hotels/' + this.props.tripId, selectedHotel)
+                axios.put(url + '/hotels/' + this.props.tripId, selectedHotel)
                     .then(res => {
                         console.log("updatedHotel");
                     });
