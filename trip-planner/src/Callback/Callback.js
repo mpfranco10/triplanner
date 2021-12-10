@@ -17,7 +17,7 @@ function Callback(props) {
 
   const dispatch = useDispatch();
 
-  axios.get('http://localhost:5000/greetings/', //proxy uri
+  axios.get('/greetings', //proxy uri
     {
       headers: {
         'Content-Type': 'application/json'
