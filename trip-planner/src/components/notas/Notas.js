@@ -11,7 +11,7 @@ import { Prompt } from 'react-router-dom';
 import configureStore from '../../store';
 
 const { store } = configureStore();
-const url = process.env.REACT_APP_BACK_URL || '';
+const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
 export default class Notas extends React.Component {
   constructor(props) {

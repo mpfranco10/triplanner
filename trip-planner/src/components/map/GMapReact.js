@@ -12,7 +12,7 @@ import { FaQuestionCircle, FaTrashAlt, FaMapMarkerAlt, FaRegClock, FaExternalLin
 import { BiTargetLock } from "react-icons/bi";
 
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
-const url = process.env.REACT_APP_BACK_URL || '';
+const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
 const containerStyle = {
   width: '100%',

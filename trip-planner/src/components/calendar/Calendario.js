@@ -19,7 +19,7 @@ import { BsFillGearFill } from "react-icons/bs";
 import CalendarModal from '../modals/CalendarModal';
 
 const GOOGLE_API_KEY = "AIzaSyDSymRKtpFQbaTLW8RovSLfZpjaD0WQow4";
-const url = process.env.REACT_APP_BACK_URL || '';
+const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
 const popover = (msg) => (
     <OverlayTrigger

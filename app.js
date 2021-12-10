@@ -44,17 +44,17 @@ app.use(function (req, res, next) {
 });
 
 //app.use('/', indexRouter);
-app.use('/countries', usersRouter);
-app.use('/trips', tripsRouter);
-app.use('/places', placesRouter);
-app.use('/hotels', hotelsRouter);
-app.use('/matrix', matrixRouter);
-app.use('/events', eventsRouter);
-app.use('/shoppingLists', shoppingListsRouter);
-app.use('/budgets', budgetsRouter);
-app.use('/notes', notesRouter);
-app.use('/userTrips', userTripsRouter);
-app.use('/widgets', widgetsRouter);
+app.use('/api/v1/countries', usersRouter);
+app.use('/api/v1/trips', tripsRouter);
+app.use('/api/v1/places', placesRouter);
+app.use('/api/v1/hotels', hotelsRouter);
+app.use('/api/v1/matrix', matrixRouter);
+app.use('/api/v1/events', eventsRouter);
+app.use('/api/v1/shoppingLists', shoppingListsRouter);
+app.use('/api/v1/budgets', budgetsRouter);
+app.use('/api/v1/notes', notesRouter);
+app.use('/api/v1/userTrips', userTripsRouter);
+app.use('/api/v1/widgets', widgetsRouter);
 app.use('/api/v1/greetings', greetingsRouter);
 
 if (process.env.NODE_ENV === 'production') {

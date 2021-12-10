@@ -8,7 +8,7 @@ import ShopTable from './ShopTable';
 import configureStore from '../../store';
 
 const { store } = configureStore();
-const url = process.env.REACT_APP_BACK_URL || '';
+const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
 export default class ListaCompras extends React.Component {
   constructor(props) {

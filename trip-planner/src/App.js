@@ -27,8 +27,8 @@ import axios from 'axios';
 
 function HomePage(props) {
     const { loginWithRedirect } = useAuth0();
-    const url = process.env.REACT_APP_BACK_URL || '';
-    axios.get(url + '/api/v1/greetings', //proxy uri
+    const url = process.env.REACT_APP_BACK_URL || '/api/v1';
+    axios.get(url + '/greetings', //proxy uri
     {
       headers: {
         'Content-Type': 'application/json'

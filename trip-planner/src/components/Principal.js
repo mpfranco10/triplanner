@@ -12,7 +12,7 @@ const minuteSeconds = 60;
 const hourSeconds = 3600;
 const daySeconds = 86400;
 
-const url = process.env.REACT_APP_BACK_URL || '';
+const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
 const timerProps = {
   isPlaying: true,
