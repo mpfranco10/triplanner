@@ -22,6 +22,7 @@ var budgetsRouter = require('./routes/budgets');
 var notesRouter = require('./routes/notes');
 var userTripsRouter = require('./routes/userTrips');
 var widgetsRouter = require('./routes/widget');
+var greetingsRouter = require('./routes/greetings');
 
 var app = express();
 
@@ -63,6 +64,7 @@ app.use('/budgets', budgetsRouter);
 app.use('/notes', notesRouter);
 app.use('/userTrips', userTripsRouter);
 app.use('/widgets', widgetsRouter);
+app.use('/greetings', greetingsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -80,6 +82,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(5000);
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}...`));
 
 module.exports = app;

@@ -16,6 +16,16 @@ function Callback(props) {
 
   const dispatch = useDispatch();
 
+  axios.get('http://localhost:5000/greetings/', //proxy uri
+    {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      const resp = res.data;
+      console.log(resp);
+    });
+
   let loading = <div className="loading">
     <div className="loader"></div>
   </div>;
@@ -28,8 +38,8 @@ function Callback(props) {
   }
 
   if (isAuthenticated) {
-    
-  console.log("callback called");
+
+    console.log("callback called");
     dispatch(userChanged(user));
     return <Redirect push to="/plan" />
   } else {
