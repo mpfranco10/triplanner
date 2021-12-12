@@ -297,7 +297,9 @@ export default class Presupuesto extends React.Component {
                 >
                   <Button variant="success" className="inline" onClick={this.handleSaveChanges} disabled={!this.state.shouldBlockNavigation} >
                     <FaSave style={{ marginRight: '10px' }} />
-                    Guardar cambios
+                    <span className="hideOnShrink">
+                      Guardar cambios
+                    </span>
                   </Button>
 
                 </OverlayTrigger>
@@ -309,7 +311,9 @@ export default class Presupuesto extends React.Component {
                 >
                   <Button variant="primary" className="inline float-right" onClick={this.handleShow}>
                     <FaPlus style={{ marginRight: '10px' }} />
-                    Agregar elemento
+                    <span className="hideOnShrink">
+                      Agregar elemento
+                    </span>
                   </Button>
 
                 </OverlayTrigger>
@@ -319,49 +323,52 @@ export default class Presupuesto extends React.Component {
             </Col>
           </Form.Group>
 
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Elemento</th>
-                <th>Descripción</th>
-                <th>Costo</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-                <th>
-                  {popover("Puede editar el elemento, ignorar el elemento (para no tenerlo en cuenta en el total) o eliminarlo de la tabla.")}
-                  Acciones
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.elements.map((o, index) =>
-                <tr key={o.name} style={{ backgroundColor: o.ignore ? 'grey' : '' }}>
-                  <td>{o.name}</td>
-                  <td>{o.description}</td>
-                  <td>${parseInt(o.price).toLocaleString()}</td>
-                  <td>{o.quantity}</td>
-                  <td>${parseInt(o.total).toLocaleString()}</td>
-                  <td>
-
-                    <div id="wrap">
-                      <div id="left">
-                        <Button variant="info" className="center" onClick={e => this.handleEdit(e, index)}>
-                          <FaPen />
-                        </Button></div>
-                      <div id="left"><Button variant="secondary" className="center" onClick={e => this.handleIgnore(e, index)}>
-                        {o.ignore ? <FaRegEye /> : <FaRegEyeSlash />}
-                      </Button></div>
-                      <div id="right"><Button variant="danger" className="center" onClick={e => this.handleDelete(e, index)}>
-                        <FaTrashAlt />
-                      </Button></div>
-                    </div>
-
-                  </td>
+          <div class="scrollme">
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Elemento</th>
+                  <th>Descripción</th>
+                  <th>Costo</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th>
+                    {popover("Puede editar el elemento, ignorar el elemento (para no tenerlo en cuenta en el total) o eliminarlo de la tabla.")}
+                    Acciones
+                  </th>
                 </tr>
-              )}
+              </thead>
+              <tbody>
+                {this.state.elements.map((o, index) =>
+                  <tr key={o.name} style={{ backgroundColor: o.ignore ? 'grey' : '' }}>
+                    <td>{o.name}</td>
+                    <td>{o.description}</td>
+                    <td>${parseInt(o.price).toLocaleString()}</td>
+                    <td>{o.quantity}</td>
+                    <td>${parseInt(o.total).toLocaleString()}</td>
+                    <td>
 
-            </tbody>
-          </Table>
+                      <div id="wrap">
+                        <div id="left">
+                          <Button variant="info" className="center" onClick={e => this.handleEdit(e, index)}>
+                            <FaPen />
+                          </Button></div>
+                        <div id="left"><Button variant="secondary" className="center" onClick={e => this.handleIgnore(e, index)}>
+                          {o.ignore ? <FaRegEye /> : <FaRegEyeSlash />}
+                        </Button></div>
+                        <div id="right"><Button variant="danger" className="center" onClick={e => this.handleDelete(e, index)}>
+                          <FaTrashAlt />
+                        </Button></div>
+                      </div>
+
+                    </td>
+                  </tr>
+                )}
+
+              </tbody>
+            </Table>
+
+          </div>
 
 
         </div>

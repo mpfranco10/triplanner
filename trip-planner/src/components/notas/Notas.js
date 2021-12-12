@@ -138,7 +138,9 @@ export default class Notas extends React.Component {
             >
               <Button variant="success" className="inline" onClick={this.handleSaveChanges} disabled={!this.state.shouldBlockNavigation}>
                 <FaSave style={{ marginRight: '10px' }} />
-                Guardar cambios
+                <span className="hideOnShrink">
+                  Guardar cambios
+                </span>
               </Button>
 
             </OverlayTrigger>
@@ -150,7 +152,9 @@ export default class Notas extends React.Component {
             >
               <Button variant="primary" className="inline float-right" onClick={this.handleAdd}>
                 <FaPlus style={{ marginRight: '10px' }} />
-                Agregar nota
+                <span className="hideOnShrink">
+                  Agregar nota
+                </span>
               </Button>
 
             </OverlayTrigger>

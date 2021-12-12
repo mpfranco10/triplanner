@@ -514,6 +514,10 @@ a {
     align-items: center;
   }
 
+  .scrollme {
+    overflow-x: auto;
+}
+
 @media (max-width: 1500px) {
     .hero-image {
         padding: 0;
@@ -596,6 +600,9 @@ a {
     }
     .budget-card {
         margin-top: 0px !important;
+    }
+    .hideOnShrink {
+        display: none;
     }
 }
 

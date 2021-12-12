@@ -126,7 +126,7 @@ class ShopTable extends React.Component {
                 <ChangesSavedModal title={'Lista de compras'} showSaved={this.state.showSaved} handleShow={this.handleClose} />
 
                 <Row>
-                    <Col  xs={6} lg={4} >  <h3>
+                    <Col xs={6} lg={4} >  <h3>
                         {popover(this.props.titleTooltip)}
                         {this.props.title}
                     </h3></Col>
@@ -140,7 +140,9 @@ class ShopTable extends React.Component {
                             >
                                 <Button variant="success" className="inline" onClick={this.handleSaveChanges} disabled={!this.state.shouldBlockNavigation}>
                                     <FaSave style={{ marginRight: '10px' }} />
-                                    Guardar cambios
+                                    <span className="hideOnShrink">
+                                        Guardar cambios
+                                    </span>
                                 </Button>
 
                             </OverlayTrigger>
@@ -152,7 +154,9 @@ class ShopTable extends React.Component {
                             >
                                 <Button variant="primary" className="inline" onClick={this.handleShow}>
                                     <FaPlus style={{ marginRight: '10px' }} />
-                                    Agregar objeto
+                                    <span className="hideOnShrink">
+                                        Agregar objeto
+                                    </span>
                                 </Button>
 
                             </OverlayTrigger>
@@ -160,50 +164,52 @@ class ShopTable extends React.Component {
                     </Col>
                 </Row>
 
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th style={{ width: '10%' }} >#</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Comprado</th>
-                            <th>
-                                {popover("Puede editar el elemento, ignorar el elemento (para no tenerlo en cuenta en el total) o eliminarlo de la tabla.")}
-                                Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.objectsList.map((o) =>
-                            <tr key={o.id} style={{ backgroundColor: o.ignore ? 'grey' : '' }}>
-                                <td>{o.id}</td>
-                                <td>{o.link !== '' ? <a href={o.link} target="_blank" rel="noopener noreferrer">{o.name}</a> : o.name}</td>
-                                <td>${parseInt(o.price).toLocaleString()}</td>
-                                <td>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={o.buyed} onChange={e => this.handlePayed(e, o.id)} />
-                                    </div>
-                                </td>
-
-                                <td>
-
-                                    <div id="wrap">
-                                        <div id="left"><Button variant="info" className="center" onClick={e => this.handleEdit(e, o.id)}>
-                                            <FaPen />
-                                        </Button></div>
-                                        <div id="left"><Button variant="secondary" className="center" onClick={e => this.handleIgnore(e, o.id)}>
-                                            {o.ignore ? <FaRegEye /> : <FaRegEyeSlash />}
-                                        </Button></div>
-                                        <div id="right"><Button variant="danger" className="center" onClick={e => this.handleDelete(e, o.id)}>
-                                            <FaTrashAlt />
-                                        </Button></div>
-                                    </div>
-
-                                </td>
+                <div class="scrollme">
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th style={{ width: '10%' }} >#</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Comprado</th>
+                                <th>
+                                    {popover("Puede editar el elemento, ignorar el elemento (para no tenerlo en cuenta en el total) o eliminarlo de la tabla.")}
+                                    Acciones</th>
                             </tr>
-                        )}
+                        </thead>
+                        <tbody>
+                            {this.state.objectsList.map((o) =>
+                                <tr key={o.id} style={{ backgroundColor: o.ignore ? 'grey' : '' }}>
+                                    <td>{o.id}</td>
+                                    <td>{o.link !== '' ? <a href={o.link} target="_blank" rel="noopener noreferrer">{o.name}</a> : o.name}</td>
+                                    <td>${parseInt(o.price).toLocaleString()}</td>
+                                    <td>
+                                        <div className="form-check">
+                                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={o.buyed} onChange={e => this.handlePayed(e, o.id)} />
+                                        </div>
+                                    </td>
 
-                    </tbody>
-                </Table>
+                                    <td>
+
+                                        <div id="wrap">
+                                            <div id="left"><Button variant="info" className="center" onClick={e => this.handleEdit(e, o.id)}>
+                                                <FaPen />
+                                            </Button></div>
+                                            <div id="left"><Button variant="secondary" className="center" onClick={e => this.handleIgnore(e, o.id)}>
+                                                {o.ignore ? <FaRegEye /> : <FaRegEyeSlash />}
+                                            </Button></div>
+                                            <div id="right"><Button variant="danger" className="center" onClick={e => this.handleDelete(e, o.id)}>
+                                                <FaTrashAlt />
+                                            </Button></div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            )}
+
+                        </tbody>
+                    </Table>
+                </div>
                 <p>Total compras: ${((this.state.objectsList.filter(({ ignore }) => ignore === false).reduce((a, b) => a + parseInt(b.price), 0))).toLocaleString()} </p>
             </div>
         );

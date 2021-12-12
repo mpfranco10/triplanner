@@ -178,7 +178,7 @@ export default class Principal extends React.Component {
           </div>
         </div>
 
-        <div className="container" style={{ marginTop: '50px' }} >
+        <div className="container" style={{ marginTop: '50px', marginBottom: '50px' }} >
           <Row>
             <Col className="page-hero d-flex align-items-center justify-content-center">
               <Card className="text-center" style={{ width: '18rem', height: '11rem' }}>
