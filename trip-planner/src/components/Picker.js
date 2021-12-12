@@ -282,7 +282,7 @@ class Picker extends React.Component {
                     </div>
                 </div>
 
-                <div style={{ backgroundColor: 'black' }} >
+                <div style={{ backgroundColor: 'black', display: this.state.trips.length == 0 ? 'none': '' }} >
                     <div className="trips-container" >
                         <h2 className="left-pad">Mis viajes</h2>
                         <div className="left-pad">

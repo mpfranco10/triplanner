@@ -281,7 +281,7 @@ export default class Calendario extends React.Component {
                 this.setState({ addedDelta: false });
                 if (index + 1 < data.length) { //there is another element to shedule
                     data[index + 1].canSchedule = true;
-                } 
+                }
             }
         }
 
@@ -593,7 +593,10 @@ export default class Calendario extends React.Component {
                                                     </ListGroup.Item>
                                                     <ListGroup.Item style={{ display: place.id === this.state.hotel || place.canSchedule ? 'none' : '' }}>
                                                         {place.scheduled ? <p className="center" style={{ marginBottom: '0' }}>Agendado</p> :
-                                                            <p>{place.detail.opening_hours.weekday_text[parseInt(this.state.colorMoment.day() === 0 ? 6 : this.state.colorMoment.day() - 1)]}</p>
+                                                            <p>{place.detail.opening_hours !== undefined ?
+                                                                place.detail.opening_hours.weekday_text[parseInt(this.state.colorMoment.day() === 0 ? 6 : this.state.colorMoment.day() - 1)]
+                                                                : '-'}
+                                                            </p>
                                                         }
 
                                                     </ListGroup.Item>
@@ -679,7 +682,8 @@ export default class Calendario extends React.Component {
                                         <ListGroup id="places">
                                             {this.state.colorPlaces.map((place, index) =>
                                                 <ListGroup.Item action style={{ marginBottom: '1px' }} key={index} onClick={e => this.placeSelected(e, place)}>
-                                                    {place.name} ({place.duration} - {place.distance} desde {this.state.origin.name} , horario de {place.detail.opening_hours.weekday_text[parseInt(this.state.colorMoment.day() === 0 ? 6 : this.state.colorMoment.day() - 1)]})
+                                                    {place.name} ({place.duration} - {place.distance} desde {this.state.origin.name}
+                                                    {place.detail.opening_hours !== undefined ? ', horario de ' + place.detail.opening_hours.weekday_text[parseInt(this.state.colorMoment.day() === 0 ? 6 : this.state.colorMoment.day() - 1)] : ''})
                                                 </ListGroup.Item>
 
                                             )}

@@ -166,7 +166,7 @@ class CustomModal extends React.Component {
         } = this.props;
 
         const dow = this.props.start !== undefined ? this.props.start.day() === 0 ? 6 : this.props.start.day()-1 : '1';
-        const opHour = this.props.placeToSchedule !== undefined ? this.props.placeToSchedule.opHours.weekday_text[parseInt(dow)] : '-';
+        const opHour = this.props.placeToSchedule !== undefined && this.props.placeToSchedule.opHours !== undefined ? this.props.placeToSchedule.opHours.weekday_text[parseInt(dow)] : '-';
 
         return (
             <Modal style={{ minWidth: '500px' }} show={this.props.show}>
