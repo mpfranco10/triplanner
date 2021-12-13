@@ -121,8 +121,8 @@ export default class Principal extends React.Component {
 
         <div className="container-fluid" >
           <div className="hero-image-2">
+            <h1 className="center">Mi viaje a {this.state.city}</h1>
             <div className="hero-text-2">
-              <h1>Mi viaje a {this.state.city}</h1>
               <div className="App">
                 <CountdownCircleTimer
                   {...timerProps}

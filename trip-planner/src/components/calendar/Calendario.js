@@ -561,6 +561,7 @@ export default class Calendario extends React.Component {
                                     eventComponent={CustomEvent}
                                     scaleFormat='hh:mm a'
                                     startTime={moment({ h: this.state.calendarStart.h, m: this.state.calendarStart.m })}
+                                    cellHeight={20}
                                 />
                             </Row >
 
