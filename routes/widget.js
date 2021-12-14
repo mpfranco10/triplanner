@@ -19,9 +19,17 @@ router.get('/:id', function (req, res) {
                     var numOfEvents = events.length;
                     MongolibShop.getDatabase(db => {
                         MongolibShop.findDocumentsById(db, lists => {
-                            var numOfObjects = lists[0].beforeList.length + lists[0].afterList.length ;
-                            var docs = {places: numOfPlaces, events: numOfEvents, objects: numOfObjects};
-                            res.send(docs);
+                            var numOfObjects = 0;
+                            var docs = {};
+                            if (lists.length === 0) {
+                                docs = { places: numOfPlaces, events: numOfEvents, objects: numOfObjects };
+                                res.send(docs);
+                            } else {
+                                numOfObjects = lists[0].beforeList.length + lists[0].afterList.length;
+                                docs = { places: numOfPlaces, events: numOfEvents, objects: numOfObjects };
+                                res.send(docs);
+                            }
+
                         }, id)
                     })
 

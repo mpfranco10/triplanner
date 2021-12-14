@@ -7,6 +7,10 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import HelpModal from './modals/HelpModal';
+import { Redirect } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { userChanged } from "../reducers/UserReducer";
+import { selectedTripChanged } from "../reducers/TripReducer";
 
 function Banner(props) {
 
@@ -15,6 +19,12 @@ function Banner(props) {
   const handleClose = () => setShow(false);
 
   const { user } = useAuth0();
+
+/*   const cleanVariables = ()  => {
+    const dispatch = useDispatch();
+          dispatch(userChanged(undefined));
+          dispatch(selectedTripChanged(undefined));
+  } */
 
   const AuthenticationButton = () => {
     const { isAuthenticated, logout, loginWithRedirect } = useAuth0();
@@ -25,10 +35,10 @@ function Banner(props) {
       </button>
     </Nav.Link>
       <Nav.Link className="center">
-        <Button variant="danger" onClick={() =>
-          logout({
-            returnTo: window.location.origin,
-          })
+        <Button variant="danger" onClick={() => {     
+          logout();
+          return <Redirect push to="/" />
+        }
         }>
           Cerrar sesión
         </Button>

@@ -20,9 +20,6 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useDispatch } from "react-redux";
-import { userChanged } from "./reducers/UserReducer";
-import { selectedTripChanged } from "./reducers/TripReducer";
 import axios from 'axios';
 
 function HomePage(props) {
@@ -102,10 +99,6 @@ function HomePage(props) {
 }
 
 function App(props) {
-    //const dispatch = useDispatch();
-    //dispatch(userChanged(undefined));
-    //dispatch(selectedTripChanged(undefined));
-
     return (
         <div>
             <Route

@@ -28,10 +28,11 @@ function Callback(props) {
   }
 
   if (isAuthenticated) {
-
-    console.log("callback called");
     dispatch(userChanged(user));
-    return <Redirect push to="/plan" />
+    return <Redirect to={{
+      pathname: "/plan",
+      state: { user: user }
+    }} />
   } else {
     //reset user
     dispatch(userChanged({}));

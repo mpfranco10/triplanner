@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 const axios = require('axios').default;
 
-const BATTUTA_KEY = "3afed094cf07b9b7aaccd056881e4269";
+const BATTUTA_KEY = "ffb8f73f89a32353006ef9c18bfe5cde";
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+  console.log("Called countries func");
   axios.get('http://battuta.medunes.net/api/country/all/?key=' + BATTUTA_KEY, //proxy uri
     {
       headers: {
@@ -13,6 +14,7 @@ router.get('/', function (req, res, next) {
         'Access-Control-Allow-Origin': '*',
       }
     }).then(resp => {
+      console.log(resp.data.length);
       res.send(resp.data);
     });
 });

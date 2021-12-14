@@ -49,8 +49,12 @@ export default class Principal extends React.Component {
     };
   }
   componentDidMount() {
-
-    const trip = store.getState().trip.selectedTrip;
+    let trip = undefined;
+    if (this.props.history.location.state !== undefined) {
+      trip = this.props.history.location.state.trip;
+    } else {
+      trip = store.getState().trip.selectedTrip;
+    }
     if (trip !== undefined) {
       this.setState({ trip: trip });
       var dateTrip = new Date(trip.calendar.startDate);
@@ -181,7 +185,7 @@ export default class Principal extends React.Component {
         <div className="container" style={{ marginTop: '50px', marginBottom: '50px' }} >
           <Row>
             <Col className="page-hero d-flex align-items-center justify-content-center">
-              <Card className="text-center" style={{ width: '18rem', height: '11rem' }}>
+              <Card className="text-center main-card" style={{ width: '18rem', height: '11rem' }}>
                 <Card.Header>Lugares guardados</Card.Header>
                 <Card.Body>
                   <Card.Title>
@@ -192,7 +196,7 @@ export default class Principal extends React.Component {
               </Card>
             </Col>
             <Col className="page-hero d-flex align-items-center justify-content-center">
-              <Card className="text-center" style={{ width: '18rem', height: '11rem' }}>
+              <Card className="text-center main-card" style={{ width: '18rem', height: '11rem' }}>
                 <Card.Header>Eventos planeados</Card.Header>
                 <Card.Body>
                   <Card.Title>
@@ -202,7 +206,7 @@ export default class Principal extends React.Component {
               </Card>
             </Col>
             <Col className="page-hero d-flex align-items-center justify-content-center">
-              <Card className="text-center" style={{ width: '18rem', height: '11rem' }}>
+              <Card className="text-center main-card" style={{ width: '18rem', height: '11rem' }}>
                 <Card.Header>Objetos en listas de compras</Card.Header>
                 <Card.Body>
                   <Card.Title>

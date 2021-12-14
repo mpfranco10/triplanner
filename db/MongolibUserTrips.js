@@ -38,19 +38,23 @@ const findDocuments = function (db, callback) { //Esto para hacer GET
 
 const findDocumentsById = function (db, callback, id) { //Esto para hacer GET individual
     const collection = db.collection(collectionName);
+    console.log("called with id: " + id);
     try {
         collection.find({ "userId": id }).toArray(function (err, docs) {
             assert.equal(err, null);
+            console.log(docs);
             if (docs.length === 0 || docs === undefined) {
+                console.log("empty");
                 callback(docs);
+            } else {
+                var trips = docs[0].trips;
+                const collection = db.collection('trips');
+                collection.find({ id: { $in: trips } }).toArray(function (err, foundTrips) {
+                    assert.equal(err, null);
+                    docs[0].trips = foundTrips;
+                    callback(docs);
+                });
             }
-            var trips = docs[0].trips;
-            const collection = db.collection('trips');
-            collection.find({id: {$in: trips}}).toArray(function (err, foundTrips) {
-                assert.equal(err, null);
-                docs[0].trips = foundTrips;
-                callback(docs);
-            });
         });
     } catch (error) {
         callback([]);

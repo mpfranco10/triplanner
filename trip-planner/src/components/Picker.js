@@ -54,29 +54,22 @@ class Picker extends React.Component {
     };
 
     componentDidMount() {
-        const user = store.getState().user.user;
-        if (user === undefined) {
+        let userID = '';
+        if (this.props.history.location.state !== undefined) {
+            userID = this.props.history.location.state.user.sub;
+        } else {
+            const user = store.getState().user.user;
+            if (user === undefined) {
+                this.props.history.push('/');
+            }
+            userID = user.sub;
+        }
+        console.log(userID);
+        if (userID === undefined || userID === '') {
             this.props.history.push('/');
         }
-        let userID = user.sub;
-        this.setState({ userId: user.sub });
-        axios.get(url + '/countries', //proxy uri
-            {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => {
-                const options = res.data.map(function (row) {
 
-                    // This function defines the "mapping behaviour". name and title 
-                    // data from each "row" from your columns array is mapped to a 
-                    // corresponding item in the new "options" array
-
-                    return { value: row.code, label: row.name }
-                });
-
-                this.setState({ countries: options });
-            });
+        this.setState({ userId: userID });
 
         axios.get(url + '/userTrips/' + userID, //proxy uri
             {
@@ -95,7 +88,26 @@ class Picker extends React.Component {
                     const trips = res.data[0].trips;
                     this.setState({ numOfTrips: trips.length, trips: trips });
                 }
+                //then get countries
+                axios.get(url + '/countries', //proxy uri
+                    {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(res => {
+                        const options = res.data.map(function (row) {
+
+                            // This function defines the "mapping behaviour". name and title 
+                            // data from each "row" from your columns array is mapped to a 
+                            // corresponding item in the new "options" array
+
+                            return { value: row.code, label: row.name }
+                        });
+                        this.setState({ countries: options });
+                    });
             });
+
+
     }
 
     handleCountrySelect(inputValue) {
@@ -142,7 +154,10 @@ class Picker extends React.Component {
                         console.log("updated trips");
                         this.setState({ trips: data });
                         this.props.changeTrip(toSave);
-                        this.props.history.push('/mytrip');
+                        this.props.history.push({
+                            pathname: '/mytrip',
+                            state: { trip: toSave },
+                        });
                     });
 
             });
@@ -151,7 +166,10 @@ class Picker extends React.Component {
 
     selectTrip = (event, obj) => {
         this.props.changeTrip(obj);
-        this.props.history.push('/mytrip');
+        this.props.history.push({
+            pathname: '/mytrip',
+            state: { trip: obj },
+        });
     }
 
     deleteTrip = (event, obj) => {
@@ -282,7 +300,7 @@ class Picker extends React.Component {
                     </div>
                 </div>
 
-                <div style={{ backgroundColor: 'black', display: this.state.trips.length == 0 ? 'none': '' }} >
+                <div style={{ backgroundColor: 'black', display: this.state.trips.length == 0 ? 'none' : '' }} >
                     <div className="trips-container" >
                         <h2 className="left-pad">Mis viajes</h2>
                         <div className="left-pad">

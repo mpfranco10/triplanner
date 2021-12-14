@@ -8,7 +8,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
   const domain = 'dev-pxvk0q3d.us.auth0.com';
   const clientId = 'F7YgSVBKnopGhKfsYchWk1tSx0gBlpZM';
   const callbackUrl = process.env.REACT_APP_CALLBACK_REDIRECT;
-
+//process.env.REACT_APP_CALLBACK_REDIRECT
   const history = useHistory();
 
   const onRedirectCallback = (appState) => {

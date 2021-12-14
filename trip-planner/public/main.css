@@ -471,6 +471,9 @@ a {
    .hero-image {
         height: 1000px !important;
     }
+    .main-card {
+        margin-top: 20px;
+    }
 }
 @media (max-width: 978px) {
     .hero-image {
