@@ -2,11 +2,9 @@ import React from 'react';
 import Banner from "../Banner";
 import GMapReact from './GMapReact';
 import moment from 'moment';
-import configureStore from '../../store';
+import { connect } from 'react-redux';
 
-const { store } = configureStore();
-
-export default class Mapa extends React.Component {
+class Mapa extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +13,7 @@ export default class Mapa extends React.Component {
         lng: -122.4088472
       },
       zoom: 13,
-      tripId: store.getState().trip.selectedTrip.id,
+      tripId: this.props.todos.id,
       numOfDays: 3,
       country: '',
     };
@@ -23,7 +21,7 @@ export default class Mapa extends React.Component {
     this.recenterMap = this.recenterMap.bind(this)
   }
   componentDidMount() {
-    const trip = store.getState().trip.selectedTrip;
+    const trip = this.props.todos;
 
     if (trip !== undefined) {
       this.setState({ trip: trip });
@@ -78,3 +76,7 @@ export default class Mapa extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({ todos: state.trip.selectedTrip });
+
+export default connect(mapStateToProps)(Mapa)

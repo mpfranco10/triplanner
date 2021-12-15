@@ -58,13 +58,13 @@ class Picker extends React.Component {
         if (this.props.history.location.state !== undefined) {
             userID = this.props.history.location.state.user.sub;
         } else {
-            const user = store.getState().user.user;
+            const user = this.props.myUser;
             if (user === undefined) {
                 this.props.history.push('/');
             }
             userID = user.sub;
         }
-        console.log(userID);
+        //console.log(userID);
         if (userID === undefined || userID === '') {
             this.props.history.push('/');
         }
@@ -334,9 +334,11 @@ class Picker extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({ myUser: state.user.user });
+
 const mapDispatchToProps = (dispatch) => {
     return {
         changeTrip: (value) => dispatch(selectedTripChanged(value))
     };
 };
-export default connect(null, mapDispatchToProps)(Picker)
+export default connect(mapStateToProps, mapDispatchToProps)(Picker)

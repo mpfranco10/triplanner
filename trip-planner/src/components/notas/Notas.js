@@ -8,12 +8,11 @@ import Nota from './Nota';
 import axios from 'axios';
 import ChangesSavedModal from '../modals/ChangesSavedModal';
 import { Prompt } from 'react-router-dom';
-import configureStore from '../../store';
+import { connect } from 'react-redux';
 
-const { store } = configureStore();
 const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
-export default class Notas extends React.Component {
+class Notas extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +28,7 @@ export default class Notas extends React.Component {
   }
 
   componentDidMount() {
-    const trip = store.getState().trip.selectedTrip;
+    const trip = this.props.todos;
     if (trip !== undefined) {
       this.setState({ trip: trip });
     } else {
@@ -176,3 +175,7 @@ export default class Notas extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({ todos: state.trip.selectedTrip });
+
+export default connect(mapStateToProps)(Notas)

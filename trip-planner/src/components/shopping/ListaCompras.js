@@ -5,12 +5,11 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ShopTable from './ShopTable';
-import configureStore from '../../store';
+import { connect } from 'react-redux';
 
-const { store } = configureStore();
 const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
-export default class ListaCompras extends React.Component {
+class ListaCompras extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +42,7 @@ export default class ListaCompras extends React.Component {
   }
 
   componentDidMount() {
-    const trip = store.getState().trip.selectedTrip;
+    const trip = this.props.todos;
     if (trip !== undefined) {
       this.setState({ trip: trip });
     } else {
@@ -107,3 +106,7 @@ export default class ListaCompras extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({ todos: state.trip.selectedTrip });
+
+export default connect(mapStateToProps)(ListaCompras)

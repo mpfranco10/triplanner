@@ -2,11 +2,9 @@ import React from 'react';
 import Banner from "../Banner";
 import moment from 'moment';
 import Calendario from "./Calendario";
-import configureStore from '../../store';
+import { connect } from 'react-redux';
 
-const { store } = configureStore();
-
-export default class Itinerario extends React.Component {
+class Itinerario extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +15,7 @@ export default class Itinerario extends React.Component {
     this.renderCalendar = this.renderCalendar.bind(this);
   }
   componentDidMount() {
-    const trip = store.getState().trip.selectedTrip;
+    const trip = this.props.todos;
     if (trip !== undefined) {
       this.setState({ trip: trip });
       this.setState({ tripId: trip.id });
@@ -67,3 +65,7 @@ export default class Itinerario extends React.Component {
 
   }
 }
+
+const mapStateToProps = (state) => ({ todos: state.trip.selectedTrip });
+
+export default connect(mapStateToProps)(Itinerario)

@@ -13,9 +13,8 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import ChangesSavedModal from './modals/ChangesSavedModal';
 import { Prompt } from 'react-router-dom';
-import configureStore from '../store';
+import { connect } from 'react-redux';
 
-const { store } = configureStore();
 const url = process.env.REACT_APP_BACK_URL || '/api/v1';
 
 const popover = (msg) => (
@@ -30,7 +29,7 @@ const popover = (msg) => (
   </OverlayTrigger>
 );
 
-export default class Presupuesto extends React.Component {
+class Presupuesto extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,7 +72,7 @@ export default class Presupuesto extends React.Component {
   }
 
   componentDidMount() {
-    const trip = store.getState().trip.selectedTrip;
+    const trip = this.props.todos;
     if (trip !== undefined) {
       this.setState({ trip: trip });
     } else {
@@ -377,3 +376,7 @@ export default class Presupuesto extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({ todos: state.trip.selectedTrip });
+
+export default connect(mapStateToProps)(Presupuesto)

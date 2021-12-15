@@ -1,12 +1,12 @@
 import React from 'react';
 import Banner from "./Banner"
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import configureStore from '../store';
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import { BsFillPinMapFill, BsFillCalendarEventFill, BsFillBasket3Fill } from "react-icons/bs";
+import { connect } from 'react-redux';
 
 const minuteSeconds = 60;
 const hourSeconds = 3600;
@@ -34,9 +34,7 @@ const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
 const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
 const getTimeDays = (time) => (time / daySeconds) | 0;
 
-const { store } = configureStore();
-
-export default class Principal extends React.Component {
+class Principal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +51,7 @@ export default class Principal extends React.Component {
     if (this.props.history.location.state !== undefined) {
       trip = this.props.history.location.state.trip;
     } else {
-      trip = store.getState().trip.selectedTrip;
+      trip = this.props.todos;
     }
     if (trip !== undefined) {
       this.setState({ trip: trip });
@@ -78,6 +76,7 @@ export default class Principal extends React.Component {
     }
 
   }
+
   render() {
     if (this.state.endDate === undefined) {
       return (
@@ -217,8 +216,11 @@ export default class Principal extends React.Component {
             </Col>
           </Row>
         </div>
-
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({ todos: state.trip.selectedTrip });
+
+export default connect(mapStateToProps)(Principal)
