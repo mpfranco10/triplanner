@@ -2,14 +2,74 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    font-family: 'Inter', sans-serif !important;
 }
 :root {
-    --main-color: #05668d;
-    --blue-color: #000000;
-    --darkerblue-color: #a5be00;
-    --yellow-color: #679436;
-    --orange-color: #ebf2fa;
+    --main-color: #22577A;
+    --black-color: #000000;
+    --fair-color: #C7F9CC;
+    --secondary-color: #38A3A5;
+    --third-color: #57CC99;
+    --auxiliar-color: #80ED99;
 }
+.container-fluid {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+}
+
+a:link {
+    text-decoration: none;
+}
+  
+a:visited {
+    text-decoration: none;
+}
+  
+a:hover {
+    text-decoration: underline;
+}
+  
+a:active {
+    text-decoration: underline;
+}
+
+.custom-button {
+    background-color: var(--fair-color) !important;
+    border-color: #80ed99a8 !important;
+    color: var(--main-color) !important;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+}
+
+.custom-button:hover {
+    background-color: #80ed99a8 !important;
+}
+
+.red-button {
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+}
+
+.red-button:hover {
+    background-color: #80ed99a8 !important;
+}
+
+.fair-text {
+    color: var(--fair-color);
+}
+
+.dark-text {
+    color: var(--main-color);
+}
+
+.semi-bold-text {
+    font-weight: 600 !important;
+}
+
+.bold-text {
+    font-weight: 700 !important;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -44,9 +104,6 @@ ul {
 }
 .label {
     text-align: left;
-}
-.roboto {
-    font-family: 'Roboto';
 }
 .color {
     background-color: var(--main-color);
@@ -105,7 +162,6 @@ svg:hover {
 }
 .weekCalendar__overlay {
     font-size: 12px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .calendarBody__column {
     min-width: 160px !important;
@@ -220,13 +276,12 @@ option:hover{
     margin-right: 10px;
 }
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
 }
 .logo-pad {
     padding-left: 10px;
-    color: var(--darkerblue-color);
+    color: var(--fair-color);
 }
 .accordion-pad {
     padding-left: 10px;
@@ -244,80 +299,18 @@ body {
     margin-left: -15px;
     margin-right: -15px;
 }
+
+.card-header {
+    background-color: rgba(199, 249, 204, 0.5) !important;
+}
+
+.nav-link {
+    color: var(--fair-color) !important;
+}
+
 a {
-    color: var(--darkerblue-color) !important;
     text-decoration: none;
     background-color: transparent;
-}
-.nav-link {
-    color: var(--darkerblue-color) !important;
-}
-.App {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    padding-top: 40px;
-    flex-wrap: wrap;
-    max-width: 750px;
-}
-.time {
-    font-size: 32px;
-}
-.hero-image-2 {
-   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('./nyc.jpg');
-   /* Set a specific height */
-    height: 150%;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-   /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    display: block;
-}
-/* The hero image */
-.hero-image {
-   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./nyc.jpg');
-   /* Set a specific height */
-    height: 150% ;
-    margin-top: 70px;
-    margin-left: 150px;
-    margin-right: 150px;
-   /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-.hero-text-2 {
-    color: var(--main-color);
-    text-align: center;
-    display: flex;
-    justify-content: center; 
-    align-items: center;  
-}
-/* The hero image */
-.init-hero-image {
-   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-color: var(--orange-color);
-   /* Set a specific height */
-    height: 100% ;
-}
-/* Place text in the middle of the image */
-.init-hero-text {
-    text-align: center;
-    color: black;
-    margin-top: 50px;
-    padding: 50px 0px 50px 0px;
-}
-.init-icon {
-    height: 10vh;
-    width: auto;
 }
 .pcontainer {
     padding: 10px 30px 30px 30px;
@@ -347,34 +340,7 @@ a {
     padding-top: 30px;
     padding-right: 60px;
 }
-/* Place text in the middle of the image */
-.hero-text {
-    color: white;
-    text-align: center;
-}
-.hero-container {
-    background-color: var(--blue-color);
-    margin: 0;
-}
-.placeform {
-    background-color: rgba(255, 255, 255, 0.5);
-    height: 100%;
-    display: block;
-    text-align: center;
-}
-.placeformform {
-    color: black;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    margin-top: 10px;
-    width: 60%;
-    margin-bottom: 30px;
-}
-.labelmargin {
-    margin-top: 40px !important;
-}
+
 .submitbtn {
     width: 100px;
     margin-top: 70px !important;
@@ -385,15 +351,7 @@ a {
 #dest {
     margin-bottom: 20px;
 }
-#section1 {
-    display: table;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-.vertical {
-    display: table-cell;
-    vertical-align: middle;
-}
+
 .loading {
     position: fixed;
     top: 0;
@@ -428,7 +386,6 @@ a {
    }
 }
 .timer {
-    font-family: "roboto";
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -437,16 +394,8 @@ a {
     overflow-x: auto;
 }
 @media (max-width: 1500px) {
-    .hero-image {
-        padding: 0;
-        margin: 0;
-        margin-top: 50px;
-   }
     body {
         padding: 0;
-   }
-    .placeformform {
-        width: 85%;
    }
     .trips-container {
         margin-left: 0px;
@@ -464,23 +413,7 @@ a {
         margin-top: -10px !important;
    }
 }
-@media (max-width: 991px) {
-    .budget-card {
-        margin-top: 20px !important;
-   }
-   .hero-image {
-        height: 1000px !important;
-    }
-    .main-card {
-        margin-top: 20px;
-    }
-}
 @media (max-width: 978px) {
-    .hero-image {
-        padding: 0;
-        margin: 0;
-        margin-top: 50px;
-   }
     body {
         padding: 0;
    }
@@ -492,27 +425,13 @@ a {
     .subtitle {
         font-size: 1.3rem !important;
    }
-    .labelmargin {
-        display: flex !important;
-        justify-content: center !important;
-   }
 }
 @media (max-width: 767px) {
     .progress {
         margin-top: 15px;
    }
-    .budget-card {
-        margin-top: 0px !important;
-   }
     .hideOnShrink {
         display: none;
    }
-   .hero-image {
-    height: 1100px !important;
-}
-}
-@media (max-width: 600px) {
-    .hero-image-2 {
-        height: 750px;
-   }
+
 }

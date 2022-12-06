@@ -2,37 +2,65 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.card-img {
+  width: 250px;
+  height: 223px;
+}
+
+.main-card {
+  width: 253px;
+  height: 25rem;
+  border-radius: 4px;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+.main-card:hover{
+  transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+
+/* The hero image */
+.init-hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+   background-color: white;
+  /* Set a specific height */
+   height: 100% ;
+}
+/* Place text in the middle of the image */
+.init-hero-text {
+   text-align: center;
+   color: black;
+   margin-top: 50px;
+   padding: 50px 0px 50px 0px;
+}
+.init-icon {
+   height: 10vh;
+   width: auto;
+}
+
+@media only screen and (min-width: 992px) {
+  .main-container {
+    height: 100vh;
+    width: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 991px) {
+  .main-container {
+    height: auto;
+    width: auto;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+  .budget-card {
+    margin-top: 20px !important;
+}
 }

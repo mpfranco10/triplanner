@@ -4,14 +4,14 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Callback from './Callback/Callback';
 import './App.css';
-import Principal from "./components/Principal";
+import Principal from "./components/countdown/Principal";
 import Mapa from "./components/map/Mapa";
 import Itinerario from "./components/calendar/Itinerario";
 import Presupuesto from './components/Presupuesto';
 import Documentos from './components/Documentos';
 import ListaCompras from './components/shopping/ListaCompras';
 import Notas from './components/notas/Notas';
-import Picker from './components/Picker';
+import Picker from './components/picker/Picker';
 import { Route } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
 import Banner from './components/Banner';
@@ -37,25 +37,25 @@ function HomePage(props) {
 
 
     return (
-        <div className="container-fluid" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
+        <div className="container-fluid main-container">
             <div className="row" id="banner">
                 <div className="col-2 col-offset-0">
                     <Banner showLinks={false} history={props.history} />
                 </div>
             </div>
             <div className="init-hero-image">
-                <div className="init-hero-text" style={{ fontFamily: 'roboto' }}>
+                <div className="init-hero-text">
                     <img src="logotrip.png" alt="tripplanner icon" className="init-icon" />
-                    <h1>Bienvenido a TriPlanner</h1>
+                    <h1 className='dark-text bold-text'>Bienvenido a TriPlanner</h1>
                     <p>Aquí puedes planear tu viaje de manera fácil y divertida</p>
 
                     <div class="container">
                         <Row>
                             <Col className="page-hero d-flex align-items-center justify-content-center">
-                                <Card style={{ width: '18rem', height: '26rem' }}>
-                                    <Card.Img variant="top" src="route_google_map.png" style={{ height: '16rem' }} />
+                                <Card className='main-card'>
+                                    <Card.Img variant="top" src="route_google_map.png" className='card-img' />
                                     <Card.Body>
-                                        <Card.Title>Selecciona lugares</Card.Title>
+                                        <Card.Title className='dark-text semi-bold-text'>Selecciona lugares</Card.Title>
                                         <Card.Text>
                                             Busca los lugares que quieres visitar en el mapa, guárdalos y organízalos por colores.
                                         </Card.Text>
@@ -63,10 +63,10 @@ function HomePage(props) {
                                 </Card>
                             </Col>
                             <Col className="page-hero d-flex align-items-center justify-content-center">
-                                <Card style={{ width: '18rem', height: '26rem' }}>
-                                    <Card.Img variant="top" src="schedule.png" style={{ height: '16rem' }} />
+                                <Card className='main-card'>
+                                    <Card.Img variant="top" src="schedule.png" className='card-img' />
                                     <Card.Body>
-                                        <Card.Title>Planea tus visitas</Card.Title>
+                                        <Card.Title className='dark-text semi-bold-text'>Planea tus visitas</Card.Title>
                                         <Card.Text>
                                             Planea cuando quieres visitar cada lugar seleccionado, teniendo en cuenta el tiempo de transporte
                                             entre lugares.
@@ -75,10 +75,10 @@ function HomePage(props) {
                                 </Card>
                             </Col>
                             <Col className="page-hero d-flex align-items-center justify-content-center">
-                                <Card style={{ width: '18rem', height: '26rem' }} className="budget-card">
-                                    <Card.Img variant="top" src="budget.png" style={{ height: '16rem' }} />
+                                <Card className="main-card budget-card">
+                                    <Card.Img variant="top" src="budget.png" className='card-img' />
                                     <Card.Body>
-                                        <Card.Title>Planea tus gastos</Card.Title>
+                                        <Card.Title className='dark-text semi-bold-text'>Planea tus gastos</Card.Title>
                                         <Card.Text>
                                             Crea listas de compras y crea un presupuesto para tu viaje.
                                         </Card.Text>
@@ -90,7 +90,7 @@ function HomePage(props) {
 
                     <br />
                     <p>Inicia sesión para planear tu viaje</p>
-                    <Button variant="success" className="center" onClick={() => loginWithRedirect()}>Iniciar sesión</Button>
+                    <Button className="center custom-button" onClick={() => loginWithRedirect()}>Iniciar sesión</Button>
 
                 </div>
             </div>

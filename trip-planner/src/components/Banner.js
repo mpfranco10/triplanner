@@ -30,12 +30,12 @@ function Banner(props) {
     const { isAuthenticated, logout, loginWithRedirect } = useAuth0();
 
     return isAuthenticated ? <Nav className="justify-content-center"><Nav.Link className="center">
-      <button type="button" className="btn btn-info" data-toggle="modal" data-target="#miModal4" onClick={handleShow}>
+      <button type="button" className="btn custom-button" data-toggle="modal" data-target="#miModal4" onClick={handleShow}>
         Ayuda
       </button>
     </Nav.Link>
       <Nav.Link className="center">
-        <Button variant="danger" onClick={() => {     
+        <Button className="red-button" onClick={() => {     
           logout();
           return <Redirect push to="/" />
         }
@@ -43,7 +43,7 @@ function Banner(props) {
           Cerrar sesión
         </Button>
       </Nav.Link> </Nav> : <Nav className="justify-content-center"><Nav.Link className="center">
-        <Button variant="success" onClick={() => loginWithRedirect()}>
+        <Button className='custom-button' onClick={() => loginWithRedirect()}>
           Iniciar sesión
         </Button>
       </Nav.Link> </Nav>;

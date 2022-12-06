@@ -1,4 +1,6 @@
 import React from 'react';
+import './Picker.css';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,10 +14,10 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import moment from 'moment';
 import 'moment/locale/es';
-import Banner from './Banner';
+import Banner from '../Banner';
 import { connect } from 'react-redux';
-import { selectedTripChanged } from "../reducers/TripReducer";
-import configureStore from '../store';
+import { selectedTripChanged } from "../../reducers/TripReducer";
+import configureStore from '../../store';
 
 const { store } = configureStore();
 const url = process.env.REACT_APP_BACK_URL || '/api/v1';
@@ -220,20 +222,20 @@ class Picker extends React.Component {
 
                 <div className="hero-container" >
                     <div className="hero-image" >
-                        <Container fluid className="hero-text roboto" >
+                        <Container fluid className="hero-text" >
                             <Row >
                                 <div id="section1" >
                                     <div>
-                                        <h1 className="title" > La nueva manera de planear tu viaje </h1>
+                                        <h1 className="title bold-text" > La nueva manera de planear tu viaje </h1>
                                     </div>
                                 </div>
                             </Row>
                             <Row >
                                 <div className="placeform" >
-                                    <form className="placeformform roboto"
+                                    <form className="placeformform"
                                         onSubmit={this.handleSubmit} >
                                         <Row >
-                                            <Col xs={12} md={12} lg={5} > < Row > <label className="labelmargin"> Fechas </label>
+                                            <Col xs={12} md={12} lg={5} > < Row > <label className="labelmargin semi-bold-text"> Fechas </label>
                                             </Row >
                                                 <Row >
                                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -253,7 +255,7 @@ class Picker extends React.Component {
                                                 md={12}
                                                 lg={6} >
                                                 <Row >
-                                                    <label className="labelmargin" > País </label>
+                                                    <label className="labelmargin semi-bold-text" > País </label>
                                                 </Row>
                                                 <Row className="geoInput" >
                                                     <div className="vertical">
@@ -265,7 +267,7 @@ class Picker extends React.Component {
 
                                                 </Row>
                                                 <Row >
-                                                    <label className="labelmargin" > Ciudad </label>
+                                                    <label className="labelmargin semi-bold-text" > Ciudad </label>
                                                 </Row>
                                                 <Row className="geoInput">
                                                     <div className="vertical">
@@ -290,7 +292,7 @@ class Picker extends React.Component {
                                                 </Row>
                                                 <Row >
                                                     <button type="submit"
-                                                        className="btn btn-primary submitbtn"
+                                                        className="btn custom-button submitbtn"
                                                         disabled={this.state.invalidData} > Aceptar </button>
                                                 </Row>
                                             </Col>
@@ -302,20 +304,20 @@ class Picker extends React.Component {
 
                 <div style={{ backgroundColor: 'black', display: this.state.trips.length == 0 ? 'none' : '' }} >
                     <div className="trips-container" >
-                        <h2 className="left-pad">Mis viajes</h2>
+                        <h2 className="left-pad bold-text">Mis viajes</h2>
                         <div className="left-pad">
                             <Row>
                                 {this.state.trips.map((o) =>
                                     <Col lg={4} key={o.id}>
                                         <Card style={{ marginBottom: '15px' }} >
-                                            <Card.Header as="h5">{o.selectedCity.split(",")[0]}</Card.Header>
+                                            <Card.Header as="h5" className='trips-header semi-bold-text'>{o.selectedCity.split(",")[0]}</Card.Header>
                                             <Card.Body>
                                                 <Card.Text>
                                                     {moment(o.calendar.startDate).format('DD/MMM/YYYY')} - {moment(o.calendar.endDate).format('DD/MMM/YYYY')}
                                                 </Card.Text>
                                                 <form className="my-2 my-lg-0 center">
-                                                    <Button variant="primary" onClick={e => this.selectTrip(e, o)} className="inline center">Seleccionar</Button>
-                                                    <Button variant="danger" className="inline center" onClick={e => this.deleteTrip(e, o)}>
+                                                    <Button onClick={e => this.selectTrip(e, o)} className="custom-button inline center">Seleccionar</Button>
+                                                    <Button  className="red-button inline center" onClick={e => this.deleteTrip(e, o)}>
                                                         Eliminar viaje
                                                     </Button>
                                                 </form>

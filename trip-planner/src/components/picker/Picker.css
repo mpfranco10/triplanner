@@ -1,0 +1,100 @@
+/* Place text in the middle of the image */
+.hero-text {
+    color: white;
+    text-align: center;
+}
+.hero-container {
+    background-color: var(--black-color);
+    margin: 0;
+}
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/beachimg.jpg');
+    /* Set a specific height */
+     height: 150% ;
+     margin-top: 70px;
+     margin-left: 150px;
+     margin-right: 150px;
+    /* Position and center the image to scale nicely on all screens */
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: relative;
+ }
+
+ .placeform {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+.placeformform {
+    color: black;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 10px;
+    width: 60%;
+    margin-bottom: 30px;
+}
+
+ #section1 {
+    display: table;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.labelmargin {
+    margin-top: 40px !important;
+}
+
+.vertical {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+ @media (max-width: 1500px) {
+    .hero-image {
+        padding: 0;
+        margin: 0;
+        margin-top: 50px;
+   }
+    .placeformform {
+        width: 85%;
+   }
+    .trips-container {
+        margin-left: 0px;
+        margin-right: 0px;
+   }
+}
+@media (max-width: 991px) {
+   .hero-image {
+        height: 1000px !important;
+    }
+}
+@media (max-width: 978px) {
+    .hero-image {
+        padding: 0;
+        margin: 0;
+        margin-top: 50px;
+   }
+   .labelmargin {
+    display: flex !important;
+    justify-content: center !important;
+}
+}
+@media (max-width: 767px) {
+    .hideOnShrink {
+        display: none;
+   }
+   .hero-image {
+    height: 1100px !important;
+}
+}
+@media (max-width: 600px) {
+    .hero-image-2 {
+        height: 750px;
+   }
+}

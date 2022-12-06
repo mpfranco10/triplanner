@@ -1,5 +1,6 @@
 import React from 'react';
-import Banner from "./Banner"
+import Banner from '../Banner';
+import './Principal.css';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row';
@@ -124,12 +125,12 @@ class Principal extends React.Component {
 
         <div className="container-fluid" >
           <div className="hero-image-2">
-            <h1 className="center">Mi viaje a {this.state.city}</h1>
+            <h1 className="center semi-bold-text fair-text">Mi viaje a {this.state.city}</h1>
             <div className="hero-text-2">
               <div className="App">
                 <CountdownCircleTimer
                   {...timerProps}
-                  colors={[["#05668d"]]}
+                  colors={[["#C7F9CC"]]}
                   duration={daysDuration}
                   initialRemainingTime={remainingTime}
                 >
@@ -139,7 +140,7 @@ class Principal extends React.Component {
                 </CountdownCircleTimer>
                 <CountdownCircleTimer
                   {...timerProps}
-                  colors={[["#679436"]]}
+                  colors={[["#38A3A5"]]}
                   duration={daySeconds}
                   initialRemainingTime={remainingTime % daySeconds}
                   onComplete={(totalElapsedTime) => [
@@ -152,7 +153,7 @@ class Principal extends React.Component {
                 </CountdownCircleTimer>
                 <CountdownCircleTimer
                   {...timerProps}
-                  colors={[["#000000"]]}
+                  colors={[["#57CC99"]]}
                   duration={hourSeconds}
                   initialRemainingTime={remainingTime % hourSeconds}
                   onComplete={(totalElapsedTime) => [
@@ -165,7 +166,7 @@ class Principal extends React.Component {
                 </CountdownCircleTimer>
                 <CountdownCircleTimer
                   {...timerProps}
-                  colors={[["#05668d"]]}
+                  colors={[["#80ED99"]]}
                   duration={minuteSeconds}
                   initialRemainingTime={remainingTime % minuteSeconds}
                   onComplete={(totalElapsedTime) => [
@@ -185,7 +186,7 @@ class Principal extends React.Component {
           <Row>
             <Col className="page-hero d-flex align-items-center justify-content-center">
               <Card className="text-center main-card" style={{ width: '18rem', height: '11rem' }}>
-                <Card.Header>Lugares guardados</Card.Header>
+                <Card.Header className='semi-bold-text'>Lugares guardados</Card.Header>
                 <Card.Body>
                   <Card.Title>
                     <h1> <BsFillPinMapFill style={{ marginRight: '10px' }} />
@@ -196,7 +197,7 @@ class Principal extends React.Component {
             </Col>
             <Col className="page-hero d-flex align-items-center justify-content-center">
               <Card className="text-center main-card" style={{ width: '18rem', height: '11rem' }}>
-                <Card.Header>Eventos planeados</Card.Header>
+                <Card.Header className='semi-bold-text'>Eventos planeados</Card.Header>
                 <Card.Body>
                   <Card.Title>
                     <h1><BsFillCalendarEventFill style={{ marginRight: '10px' }} /> {this.state.events}</h1>
@@ -206,7 +207,7 @@ class Principal extends React.Component {
             </Col>
             <Col className="page-hero d-flex align-items-center justify-content-center">
               <Card className="text-center main-card" style={{ width: '18rem', height: '11rem' }}>
-                <Card.Header>Objetos en listas de compras</Card.Header>
+                <Card.Header className='semi-bold-text'>Objetos en listas de compras</Card.Header>
                 <Card.Body>
                   <Card.Title>
                     <h1><BsFillBasket3Fill style={{ marginRight: '10px' }} /> {this.state.objects}</h1>
